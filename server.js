@@ -1,12 +1,12 @@
-const express = require("express");
+const http = require("http");
 
-const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  res.send("Servidor funcionando correctamente 🚀");
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
+  res.end("Servidor funcionando correctamente 🚀");
 });
 
-app.listen(PORT, "0.0.0.0", () => {
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`Servidor funcionando en el puerto ${PORT}`);
 });
